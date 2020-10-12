@@ -1,12 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+
+
 const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());//Para ele entender as requisicoes em JSON
+app.use(bodyParser.urlencoded({ extended: false }))//Para conseguir codificar as requisicoes por meio da URL
 
 
 
-require('./controllers/authController')(app);
+//Teste de uma requisicao
+app.get('/', (req, res) => {
 
 
-app.listen(3000);
+    res.send('Estou funcionando corretamente!!!!');
+});
+
+
+app.listen(3400);
